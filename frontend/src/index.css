@@ -1,0 +1,410 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-dark: var(--theme-primary-dark);
+  --color-primary: var(--theme-primary);
+  --color-secondary: var(--theme-secondary);
+  --color-accent: var(--theme-accent);
+
+  /* Matte theme configurations */
+  --color-medicalBg-light: var(--theme-bg-light);
+  --color-medicalBg-dark: #050507;
+  --color-medical-bg-light: var(--theme-bg-light);
+  --color-medical-bg-dark: #050507;
+
+  --color-medicalCard-light: #FFFFFF;
+  --color-medicalCard-dark: #221F26;
+  --color-medical-card-light: #FFFFFF;
+  --color-medical-card-dark: #221F26;
+
+  /* Semantic Typography Colors */
+  --color-clinical-heading: var(--theme-clinical-heading);
+  --color-clinical-value: var(--theme-clinical-value);
+  --color-clinical-body: var(--theme-clinical-body);
+  --color-clinical-label: var(--theme-clinical-label);
+  --color-clinical-muted: var(--theme-clinical-muted);
+
+  --color-nav-inactive: var(--theme-nav-inactive);
+  --color-nav-hover: var(--theme-nav-hover);
+  --color-card-label: var(--theme-card-label);
+
+  /* Gender button unselected */
+  --color-gender-unselected-bg: var(--theme-gender-unselected-bg);
+  --color-gender-unselected-border: var(--theme-gender-unselected-border);
+  --color-gender-unselected-text: var(--theme-gender-unselected-text);
+  --color-gender-unselected-hover: var(--theme-gender-unselected-hover);
+
+  /* Readonly fields */
+  --color-readonly-bg: var(--theme-readonly-bg);
+  --color-readonly-border: var(--theme-readonly-border);
+  --color-readonly-text: var(--theme-readonly-text);
+
+  /* Progress card icon containers */
+  --color-progress-icon-bg: var(--theme-progress-icon-bg);
+  --color-progress-icon-border: var(--theme-progress-icon-border);
+
+  /* Progress bar track */
+  --color-track-bg: var(--theme-track-bg);
+
+  /* Custom non-standard gray colors for complete light-mode coverage */
+  --color-gray-55: var(--theme-gray-55);
+  --color-gray-105: var(--theme-gray-105);
+  --color-gray-150: var(--theme-gray-150);
+  --color-gray-155: var(--theme-gray-155);
+  --color-gray-250: var(--theme-gray-250);
+  --color-gray-305: var(--theme-gray-305);
+  --color-gray-650: var(--theme-gray-650);
+  --color-gray-850: var(--theme-gray-850);
+  --color-gray-855: var(--theme-gray-855);
+
+  /* Notion-scale typography */
+  --text-hero: 40px;
+  --text-section: 24px;
+  --text-card: 16.5px;
+  --text-body: 14.5px;
+  --text-small: 12.5px;
+
+  --font-sans: 'General Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Clash Display', system-ui, -apple-system, sans-serif;
+  --radius-medical: 12px;
+}
+
+@layer base {
+  :root {
+    --theme-primary-dark: #2D2730;
+    --theme-primary: #8B2E3C;
+    --theme-secondary: #77707A;
+    --theme-accent: #8B2E3C;
+    --theme-bg-light: #FAF8F6;
+
+    /* Refined soft light mode typography scale */
+    --theme-clinical-heading: #2D2730;
+    --theme-clinical-value: #4A434B;
+    --theme-clinical-body: #4A434B;
+    --theme-clinical-label: #77707A;
+    --theme-clinical-muted: #9A9AA6;
+
+    --theme-nav-inactive: #77707A;
+    --theme-nav-hover: #4A434B;
+    --theme-card-label: #77707A;
+
+    /* Gender button unselected */
+    --theme-gender-unselected-bg: #F4EEF0;
+    --theme-gender-unselected-border: #E5D8DC;
+    --theme-gender-unselected-text: #6B5560;
+    --theme-gender-unselected-hover: #EFEAEC;
+
+    /* Readonly fields */
+    --theme-readonly-bg: #F8F4F5;
+    --theme-readonly-border: #E6D9DD;
+    --theme-readonly-text: #5E4A52;
+
+    /* Progress card icon containers */
+    --theme-progress-icon-bg: #F5EFF1;
+    --theme-progress-icon-border: #E7DADF;
+
+    /* Progress bar track */
+    --theme-track-bg: #E7E2E4;
+
+    /* Custom non-standard gray colors for complete light-mode coverage */
+    --theme-gray-55: #F5EFF1;
+    --theme-gray-105: #EBE4E6;
+    --theme-gray-150: #E6D9DD;
+    --theme-gray-155: #DFD2D6;
+    --theme-gray-250: #D8C8CC;
+    --theme-gray-305: #C8B6BB;
+    --theme-gray-650: #77707A;
+    --theme-gray-850: #FAF8F6;
+    --theme-gray-855: #EFEAEC;
+  }
+
+  .dark {
+    --theme-primary-dark: #3A0519;
+    --theme-primary: #670D2F;
+    --theme-secondary: #A53860;
+    --theme-accent: #EF88AD;
+    --theme-bg-light: #FAF8F8;
+
+    /* Dark mode typography colors (existing unchanged) */
+    --theme-clinical-heading: #FFFFFF;
+    --theme-clinical-value: #F5F5F5;
+    --theme-clinical-body: #D1D5DB;
+    --theme-clinical-label: #A1A1AA;
+    --theme-clinical-muted: #6B7280;
+
+    --theme-nav-inactive: #A1A1AA;
+    --theme-nav-hover: #FFFFFF;
+    --theme-card-label: #A1A1AA;
+
+    /* Gender button unselected */
+    --theme-gender-unselected-bg: #1B1720;
+    --theme-gender-unselected-border: #1F2937;
+    --theme-gender-unselected-text: #D1D5DB;
+    --theme-gender-unselected-hover: #211B26;
+
+    /* Readonly fields */
+    --theme-readonly-bg: #141118;
+    --theme-readonly-border: #1F2937;
+    --theme-readonly-text: #D1D5DB;
+
+    /* Progress card icon containers */
+    --theme-progress-icon-bg: #1B1720;
+    --theme-progress-icon-border: #1F2937;
+
+    /* Progress bar track */
+    --theme-track-bg: #1F2937;
+
+    /* Custom non-standard gray colors for complete light-mode coverage */
+    --theme-gray-55: #211B26;
+    --theme-gray-105: #1F1A24;
+    --theme-gray-150: #292230;
+    --theme-gray-155: #2C2533;
+    --theme-gray-250: #382F40;
+    --theme-gray-305: #4C3F57;
+    --theme-gray-650: #9CA3AF;
+    --theme-gray-850: #1D1824;
+    --theme-gray-855: #1A1520;
+  }
+}
+
+@layer base {
+  --animate-fade-in: fadeIn 0.3s ease-out forwards;
+  --animate-slide-up: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-pulse-subtle: pulseSubtle 3s infinite ease-in-out;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseSubtle {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.95;
+    }
+  }
+}
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+}
+
+@utility premium-card-primary {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(140, 120, 130, 0.12);
+  background-color: #FFFFFF;
+  backdrop-filter: blur(16px);
+  padding: 2rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(140, 120, 130, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark & {
+    background: rgba(18, 18, 22, 0.85);
+    /* Default Card */
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      transform: translateY(-4px);
+      background: rgba(24, 24, 28, 0.95);
+      /* Brightness increase */
+      border-color: rgba(165, 56, 96, 0.3);
+      /* Accent border */
+      box-shadow: 0 12px 40px rgba(239, 136, 173, 0.08);
+      /* Soft pink shadow */
+    }
+  }
+}
+
+@utility premium-card-secondary {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(140, 120, 130, 0.12);
+  background-color: #FFFFFF;
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    border-color: rgba(140, 120, 130, 0.25);
+    background-color: #FCFAFB;
+  }
+
+  .dark & {
+    background: rgba(18, 18, 22, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: translateY(-4px);
+      background: rgba(24, 24, 28, 0.85);
+      border-color: rgba(165, 56, 96, 0.2);
+      box-shadow: 0 8px 30px rgba(239, 136, 173, 0.05);
+    }
+  }
+}
+
+@utility premium-card-reference {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(103, 13, 47, 0.04);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 1.25rem;
+  box-shadow: none;
+
+  &:hover {
+    border-color: rgba(103, 13, 47, 0.08);
+  }
+
+  .dark & {
+    background: rgba(20, 17, 24, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.015);
+    box-shadow: none;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.035);
+    }
+  }
+}
+
+@utility floating-capsule {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(103, 13, 47, 0.08);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  padding: 1rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark & {
+    background: rgba(27, 23, 32, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background: rgba(33, 27, 38, 0.9);
+      border-color: rgba(239, 136, 173, 0.3);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+  }
+}
+
+@layer base {
+  body {
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    @apply transition-colors duration-200 text-body;
+    background-color: #FAF8F6;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(139,46,60,0.12), transparent 30%),
+      radial-gradient(circle at 85% 80%, rgba(139,46,60,0.08), transparent 40%),
+      linear-gradient(rgba(103, 13, 47, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(103, 13, 47, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-color: #0F0D12;
+    background-image:
+      /* Large ambient maroon glow behind hero areas */
+      radial-gradient(circle at 20% 0%, rgba(165, 56, 96, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 100%, rgba(239, 136, 173, 0.04) 0%, transparent 60%),
+      /* Faint grid pattern (opacity below 4%) */
+      linear-gradient(rgba(239, 136, 173, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239, 136, 173, 0.015) 1px, transparent 1px),
+      /* Geometric subtle diagonals */
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.005) 0px, rgba(255, 255, 255, 0.005) 1px, transparent 1px, transparent 120px),
+      repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.005) 0px, rgba(255, 255, 255, 0.005) 1px, transparent 1px, transparent 120px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/10 rounded hover:bg-primary/20;
+}
+
+/* Medical Form Custom Stylings */
+input,
+select,
+textarea {
+  @apply outline-none border transition-all duration-150 text-body;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  @apply border-gray-800 bg-medicalCard-dark focus:border-accent/40 focus:ring-1 focus:ring-accent/20;
+}
+
+.light input,
+.light select,
+.light textarea {
+  @apply border-gray-200 bg-white focus:border-secondary/50 focus:ring-1 focus:ring-secondary/20;
+}
+
+/* Custom input styling for LoginPage accessibility */
+.custom-input {
+  color: #1A1A1A !important;
+  caret-color: #B03A6A;
+}
+.custom-input::placeholder {
+  color: rgba(0,0,0,0.45) !important;
+}
