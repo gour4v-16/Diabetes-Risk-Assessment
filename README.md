@@ -321,3 +321,6 @@ Acropolis Institute of Technology & Research
 ---
 
 **DiaRisk — Empowering Preventive Healthcare Through Artificial Intelligence**
+
+website Link-
+https://diariskdiabetes.netlify.app/
