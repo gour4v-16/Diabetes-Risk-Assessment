@@ -10,49 +10,24 @@ class Predictor:
 
         # If models are not loaded (testing mode)
         if not all([
-            model_loader.rf_model,
             model_loader.xgb_model,
-            model_loader.ann_model,
             model_loader.scaler
         ]):
             return {
-                "risk_score": 76.4,
-                "risk_category": "High Risk",
-                "confidence": "Medium",
-                "gauge_color": "red",
+                "risk_score": 0.0,
+                "risk_category": "Unknown",
+                "confidence": "Low",
+                "gauge_color": "yellow",
                 "model_scores": {
-                    "random_forest": 72.1,
-                    "xgboost": 80.3,
-                    "ann": 76.8
+                    "xgboost": 0.0
                 },
-                "top_risk_factors": [
-                    "High BMI",
-                    "Smoking"
-                ]
+                "top_risk_factors": []
             }
 
-        # Random Forest
-        rf_prob = model_loader.rf_model.predict_proba(df)[0][1]
-
-        # XGBoost
+        # XGBoost prediction
         xgb_prob = model_loader.xgb_model.predict_proba(df)[0][1]
 
-        # Scale features for ANN
-        scaled_df = model_loader.scaler.transform(df)
-
-        # ANN
-        ann_prob = float(
-            model_loader.ann_model.predict(scaled_df)[0][0]
-        )
-
-        # Ensemble score
-        final_risk_prob = (
-            0.3 * rf_prob +
-            0.4 * xgb_prob +
-            0.3 * ann_prob
-        )
-
-        final_risk_percentage = final_risk_prob * 100
+        final_risk_percentage = xgb_prob * 100
 
         # Risk category
         if final_risk_percentage <= 30:
@@ -67,24 +42,13 @@ class Predictor:
             risk_category = "High Risk"
             gauge_color = "red"
 
-        # Individual model scores
+        # Model scores (XGBoost only)
         model_scores = {
-            "random_forest": round(float(rf_prob * 100), 1),
-            "xgboost": round(float(xgb_prob * 100), 1),
-            "ann": round(float(ann_prob * 100), 1)
+            "xgboost": round(float(xgb_prob * 100), 1)
         }
 
-        # Confidence calculation
-        scores = list(model_scores.values())
-
-        spread = max(scores) - min(scores)
-
-        if spread < 5:
-            confidence = "High"
-        elif spread < 15:
-            confidence = "Medium"
-        else:
-            confidence = "Low"
+        # Confidence is always High with a single model
+        confidence = "High"
 
         # Risk factors
         top_risk_factors = []

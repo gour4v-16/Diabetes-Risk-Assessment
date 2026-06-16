@@ -6,6 +6,7 @@ router = APIRouter(prefix="/model-info", tags=["model-info"])
 def get_model_info():
     """
     Endpoint to retrieve specifications of the trained models.
+    Production deployment uses XGBoost only for memory efficiency.
     """
     return {
         "reference_cohort": "BRFSS 2023 + BRFSS 2024",
@@ -15,22 +16,11 @@ def get_model_info():
         "target_variable": "Diabetes Risk Prediction",
         "validation_split": "80% Training / 20% Testing",
         "models": [
-            "Random Forest",
-            "XGBoost",
-            "Artificial Neural Network (ANN)"
+            "XGBoost"
         ],
-        "ensemble_method": "Weighted Voting Ensemble",
+        "ensemble_method": "Single Model (XGBoost)",
         "model_weights": {
-            "Random Forest": "30%",
-            "XGBoost": "40%",
-            "ANN": "30%"
-        },
-        "ann_architecture": {
-            "input_layer": "13 features",
-            "hidden_layer_1": "32 neurons (ReLU)",
-            "hidden_layer_2": "16 neurons (ReLU)",
-            "output_layer": "1 neuron (Sigmoid)",
-            "optimizer": "Adam"
+            "XGBoost": "100%"
         },
         "metrics": [
             { "label": "Evaluation Accuracy", "value": 71.4, "detail": "Overall predictive validity" },

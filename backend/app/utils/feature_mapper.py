@@ -1,7 +1,7 @@
 import pandas as pd
 from app.schemas.request_schema import PredictionRequest
 
-# The exact feature order required by the models
+# The exact feature order required by the models (from xgb_model.feature_names)
 FEATURE_ORDER = [
     "DCTR_STATUS",
     "EXER_STATUS",

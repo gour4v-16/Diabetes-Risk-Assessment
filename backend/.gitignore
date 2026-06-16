@@ -31,11 +31,9 @@ ENV/
 env.bak/
 venv.bak/
 
-# # ML Models
-# saved_models/*.pkl
-# saved_models/*.h5
-# saved_models/*.json
-# saved_models/*.joblib
+# ML Models (RF and ANN removed for deployment)
+saved_models/rf_model.pkl
+saved_models/ann_model.h5
 
 # IDE
 .vscode/
